@@ -1,0 +1,10 @@
+Ant Colony Optimization (Marco Dorigo, Thomas Stutzle)
+http://www.ijser.org/researchpaper/Ant_Colony_Optimization.pdf
+http://www.et.byu.edu/~ered/ME482/Paper_Topics/TomAnt_ColonyOptimization.pdf
+http://ijcsi.org/papers/IJCSI-9-2-3-271-273.pdf
+http://inpressco.com/wp-content/uploads/2014/06/Paper1792116-2118.pdf
+http://article.sciencepublishinggroup.com/pdf/10.11648.j.acis.20130103.14.pdf
+http://www.codeproject.com/Articles/644067/Applying-Ant-Colony-Optimization-Algorithms-to-Sol
+http://web.engr.illinois.edu/~jeffe/pubs/pdf/cdsimple.pdf
+https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial?redirectlocale=en-US&redirectslug=Canvas_tutorial
+
