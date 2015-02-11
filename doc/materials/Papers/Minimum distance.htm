@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+     "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Rotating Calipers: minimum distance between 2 polygons</TITLE>
+<BASE href="http://cgm.cs.mcgill.ca/~orm/public_html" target=rcframe>
+</HEAD>
+<BODY>
+<BODY BGCOLOR="#dfdfdf" TEXT="#000000" LINK="ff0000">
+<A HREF="welcome.html" target="_top"><IMG align=center width="70" height="24" alt="Main homepage" border=0 hpace=5 src="images/Home.gif"></A><A HREF="rotcal.frame.html"><IMG width="45" height="24" align=center alt="Rotating Calipers homepage" border=0 hspace=5 src="images/RC.gif"></A><A href="maxd2p.html"><img width="34" height="15" align=center alt="Previous problem" border=0 hspace=5 src="images/larrow.gif"></A><A href="maer.html"><img width="34" height="15" align=center alt="Next problem" border=0 hspace=5 src="images/rarrow.gif"></A><A href="http://cgm.cs.mcgill.ca/~orm/RCS.frame.html"><IMG  border=0 alt="Applet homepage" src="images/Applet.gif" align=center border=0 hspace=5></A>
+<BR CLEAR=all>
+<HR>
+<BR>
+<H2>The minimum distance between two convex polygons</H2>
+
+Given two disjoint (i.e. non-intersecting) convex polygons <I>P</I> and <I>Q</I>, the goal is to find the
+pair(s) of points (<I>p</I>,<I>q</I>) (<I>p</I> belonging to <I>P</I> and
+<I>q</I> to <I>Q</I>) minimizing the distance between them.
+<BR><BR>
+The fact that the polygons are disjoint is important, since it is assumed the polygon contains its interior. If the polygons intersect, then the minimum distance is meaningless. However, another version of this problem, the minimum vertex distance between convex polygons has solutions in intersecting and non-intersecting cases.
+<BR><BR>
+Back to the main problem: intuitively, the points determining the minimum distance will not belong to the interior of their respective
+polygons. Similar to the maximum distance problem, we have the following result: 
+<BR><BR>
+The minimum distance between two convex polygons <I>P</I> and <I>Q</I> is
+determined by <A href="app2p.html">anti-podal pair between the polygons</A>. As there are three cases for <A href="app2p.html">anti-podal pairs</A> between convex polygons, three cases for the minimum distance can occur:
+<OL>
+<LI> The vertex-vertex case
+<LI> The vertex-edge case
+<LI> The edge-edge case
+</OL>
+<BR>
+In other words, the points determining the minimum distance are not necessarily vertices. The following three examples illustrate the above result:
+<BR>
+<IMG align=bottom alt="Min. distance vertex-vertex case" src="images/mind2p2.gif">
+<IMG align=bottom alt="Min. distance vertex-edge case" src="images/mind2p3.gif">
+<IMG align=bottom alt="Min. distance edge-edge case" src="images/mind2p1.gif">
+<BR clear=all>
+
+Given this result, an algorithm based on the Rotating Calipers naturally comes to mind:
+<BR>
+Consider the following algorithm, where the input is assumed to be two convex
+polygons <I>P</I> and <I>Q</I> with <I>m</I> and <I>n</I> vertices respectively given in clockwise order.
+<OL>
+<LI> Compute the vertex with minimum <I>y</I> coordinate for <I>P</I> (call it
+<I>yminP</I>) and the
+vertex with maximum <I>y</I> coordinate for <I>Q</I> (call it <I>ymaxQ</I>).
+<LI> Construct two lines of support <I>LP</I> and <I>LQ</I> for the polygons
+at <I>yminP</I> and 
+<I>ymaxQ</I> such that the polygons lie to the right of their respective lines 
+of support. Then <I>LP</I> and <I>LQ</I> have opposite direction, and
+<I>yminP</I> and <I>ymaxQ</I> form an anti-podal pair between the polygons.
+<LI> Compute dist(<I>yminP</I>,<I>ymaxQ</I>) and keep it as the minimum.
+<LI> Rotate the lines clockwise until one of them coincides with an edge of its polygon. 
+<LI> If only one line coincides with an edge, then the vertex-edge anti-podal pair distance should be computed along with the new vertex-vertex anti-podal pairA distance. Both distances are compared the current minimum, which is updated if necessary.
+If both lines of support coincide with edges, then the situation is somewhat more complex. If the edges "overlap", that is if one can construct a line perpendicular to both edges and intersecting both edges (but not at vertices), then the edge-edge distance should be computed. Otherwise the three new vertex-vertex anti-podal pair distances are computed. All distances are compared to the current minimum which is updated if necessary.
+<LI> Repeat steps 4 and 5, until the lines reach (<I>yminP</I>, <I>ymaxQ</I>) again.
+<LI> Output the minimum distance.
+</OL>
+
+The Rotating Calipers paradigm ensures all possible anti-podal pairs (and all possible subcases) are
+considered. Furthermore, the whole algorithm has linear time complexity, since
+(besides the initialization), there are only as many steps as there are
+vertices.
+<BR><BR>
+The maximum and minimum distance problems show that the Rotating Calipers paradigm can be used in different ways (compared to the previous problems of diameter and width). The paradigm can be applied to a two polygon case.
+<BR>
+The smallest-box problem (<A href="maer.html">minimum area enclosing rectangle</A>) shows yet another way of using the Rotating Calipers, by using two sets of orthogonal lines of support on the same polygon.
+<HR>
+<A HREF="welcome.html" target="_top"><IMG align=center width="70" height="24" alt="Main homepage" border=0 hpace=5 src="images/Home.gif"></A><A HREF="rotcal.frame.html"><IMG width="45" height="24" align=center alt="Rotating Calipers homepage" border=0 hspace=5 src="images/RC.gif"></A><A href="maxd2p.html"><img width="34" height="15" align=center alt="Previous problem" border=0 hspace=5 src="images/larrow.gif"></A><A href="maer.html"><img width="34" height="15" align=center alt="Next problem" border=0 hspace=5 src="images/rarrow.gif"></A><A href="http://cgm.cs.mcgill.ca/~orm/RCS.frame.html"><IMG  border=0 alt="Applet homepage" src="images/Applet.gif" align=center border=0 hspace=5></A>
+<BR clear=all>
+<I>December 17th, 1998<I>			<!-- Modification date -->
+</HTML>
+

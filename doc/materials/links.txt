@@ -7,4 +7,4 @@ http://article.sciencepublishinggroup.com/pdf/10.11648.j.acis.20130103.14.pdf
 http://www.codeproject.com/Articles/644067/Applying-Ant-Colony-Optimization-Algorithms-to-Sol
 http://web.engr.illinois.edu/~jeffe/pubs/pdf/cdsimple.pdf
 https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial?redirectlocale=en-US&redirectslug=Canvas_tutorial
-
+http://cgm.cs.mcgill.ca/~orm/mind2p.html
